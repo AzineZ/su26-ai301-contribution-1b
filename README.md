@@ -1,6 +1,6 @@
-# Contribution [#22]: [Does not detect sentences ending with ! or ?]
+# Contribution #22: Does not detect sentences ending with ! or ?
 
-**Contribution Number:** [#22]  
+**Contribution Number:** #22  
 **Student:** Phi Nguyen  
 **Issue:** [GitHub issue link](https://github.com/JoshuaKGoldberg/sentences-per-line/issues/22)  
 **Status:** Phase I Complete
