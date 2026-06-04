@@ -1,15 +1,27 @@
-# Contribution [#]: [Issue Title]
+# Contribution [#22]: [Does not detect sentences ending with ! or ?]
 
-**Contribution Number:** [1 / 2 / 3]  
-**Student:** [Your Name]  
-**Issue:** [GitHub issue link]  
-**Status:** [Phase I / Phase II / Phase III / Phase IV] [In Progress / Complete]
+**Contribution Number:** [#22]  
+**Student:** Phi Nguyen  
+**Issue:** [GitHub issue link](https://github.com/JoshuaKGoldberg/sentences-per-line/issues/22)  
+**Status:** Phase I Complete
 
 ---
 
 ## Why I Chose This Issue
 
-[1-2 paragraphs explaining why this issue interests you, how it matches your skills/learning goals, what you hope to learn]
+I chose issue #22 "Does not detect sentences ending with ! or ?" because 
+it aligns with my JavaScript and Typescript experience and my goal to improve my frontend skills. 
+The issue are labeled "good first issue" and "status: accepting prs" and has clear local deployment steps in the readme.
+Finally, the project uses Vite, which is a stack I have used in the past.
+
+The package ensures that every markdown line contains at most one sentence. From reading the issue thread, 
+I understand the current problem is that the package is only capable of tracking sentences ending with a dot,
+not question mark or exclamation mark. My goal is to ensure the package works on sentences ending with these two symbols.
+
+I left a comment on the issue introducing myself and awaiting the maintainer's response. He was last active in December 2025 as 
+of this writing checking out a PR to fix this issue. That PR was closed, unmerged to the main branch.
+
+
 
 ---
 
