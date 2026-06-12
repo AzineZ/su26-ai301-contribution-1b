@@ -29,19 +29,21 @@ of this writing checking out a PR to fix this issue. That PR was closed, unmerge
 
 ### Problem Description
 
-[In your own words, what's broken or missing?]
+The current implementation of the package only handles sentences ending in '.'. It doesn't detect sentences ending with '!' or '?'.
 
 ### Expected Behavior
 
-[What should happen?]
+The package should detect sentences ending in '.', '!' and '?'.
 
 ### Current Behavior
 
-[What actually happens?]
+The package can only detects '.' in sentences.
 
 ### Affected Components
 
-[Which parts of the codebase are involved?]
+The getIndexBeforeSecondSentence.ts file is responsibile for detecting the end of the first sentence. Right now, 
+it can only detect sentences ending in '.'. I need to add functionality to this file so it can handle '?' and '!'
+The getIndexBeforeSecondSentence.test.ts only covers cases of '.', I need to add new tests covering '?' and '!'.
 
 ---
 
@@ -49,14 +51,16 @@ of this writing checking out a PR to fix this issue. That PR was closed, unmerge
 
 ### Environment Setup
 
-[Notes on setting up your local development environment - challenges you faced, how you solved them]
+- Create a new folder on VSCode.
+- Clone the forked repo to this folder.
+- Follow the instructions in the DEVELOPMENT.md (shown on the readme page)
+- Done!
 
 ### Steps to Reproduce
 
-1. [Step 1]
-2. [Step 2]
-3. [Observed result]
-
+1. All tests will pass initially since they only account for the dot. Add more tests for the '?' and '!' in getIndexBeforeSecondSentence.test.ts.
+2. Run this test file again, it will show the newly added tests failing.
+3. Done! 
 ### Reproduction Evidence
 
 - **Commit showing reproduction:** [Link to commit in your fork]
