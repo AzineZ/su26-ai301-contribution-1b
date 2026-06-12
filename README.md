@@ -3,7 +3,7 @@
 **Contribution Number:** #22  
 **Student:** Phi Nguyen  
 **Issue:** [GitHub issue link](https://github.com/JoshuaKGoldberg/sentences-per-line/issues/22)  
-**Status:** Phase I Complete
+**Status:** Phase II Complete
 
 ---
 
@@ -41,9 +41,12 @@ The package can only detects '.' in sentences.
 
 ### Affected Components
 
-The getIndexBeforeSecondSentence.ts file is responsibile for detecting the end of the first sentence. Right now, 
+- The getIndexBeforeSecondSentence.ts file is responsibile for detecting the end of the first sentence. Right now, 
 it can only detect sentences ending in '.'. I need to add functionality to this file so it can handle '?' and '!'
 The getIndexBeforeSecondSentence.test.ts only covers cases of '.', I need to add new tests covering '?' and '!'.
+- The modifyNodeIfMultipleSentencesInLine.ts file is also affected since it has a logic that checks for dot, which means it also needs
+to be modified to checks for the two new punctuations.
+- Test files that test the dot behavior are affected since they now need to test the other two punctuations.
 
 ---
 
@@ -63,9 +66,11 @@ The getIndexBeforeSecondSentence.test.ts only covers cases of '.', I need to add
 3. Done! 
 ### Reproduction Evidence
 
-- **Commit showing reproduction:** [Link to commit in your fork]
-- **Screenshots/logs:** [If applicable]
-- **My findings:** [What you discovered during reproduction]
+- **Commit showing reproduction:** [Link](https://github.com/AzineZ/sentences-per-line/commit/fdb70438f9af5c0a3bb1a696ceeced56764af52e)
+- **My findings:**
+  - The markdownlint plugin actually checks for dot as well. I may have to modify this file in addition to getIndexBeforeSecondSentence.ts
+to correctly implement ! and ?.
+  - No separate integration tests but some plugin's tests rely on other plugins. This can work as integration tests.
 
 ---
 
@@ -73,31 +78,45 @@ The getIndexBeforeSecondSentence.test.ts only covers cases of '.', I need to add
 
 ### Analysis
 
-[Your analysis of the root cause - what's causing the issue?]
+In getIndexBeforeSecondSentence.ts, function getIndexBeforeSecondSentence only checks for dot. There is no if statements that can check for other two punctuations.
 
 ### Proposed Solution
 
-[High-level description of your fix approach]
+- Add a logic to getIndexBeforeSecondSentence.ts to account for ! and ?. Check the existing implementation of the dot to make the work easier since they are all punctuations that end a sentence.
+- Check other packages that interact with sentence-per-line package and see if they need changes to accommodate the two new punctuations.
+- Add new tests for every plugin that need changes.
 
 ### Implementation Plan
 
 Using UMPIRE framework (adapted):
 
-**Understand:** [Restate the problem]
+**Understand:** Fix the package so that punctuations like ! and ? are detected by the package.
 
-**Match:** [What similar patterns/solutions exist in the codebase?]
+**Match:** No solution exists prior to this since only dot was considered up until now.
 
 **Plan:** [Step-by-step implementation plan]
-1. [Modify file X to do Y]
-2. [Add function Z]
-3. [Update tests]
+1. Go to function getIndexBeforeSecondSentence in getIndexBeforeSecondSentence.ts.
+2. Add a new if block handling the ! and ? punctuations. Put this if block above the existing one that handles the dot.
+3. Run the solution against the new tests for this sentence-per-line package.
+4. If that works, add modification to modifyNodeIfMultipleSentencesInLine.ts since it needs to check for ! and ? as well.
+5. Run its tests.
+6. Check other test files and add tests for ! and ? as needed.
+7. Confirm that all tests pass.
 
 **Implement:** [Link to your branch/commits as you work]
+- [Part 0 (this commit verifies bug reproduction)](https://github.com/AzineZ/sentences-per-line/commit/fdb70438f9af5c0a3bb1a696ceeced56764af52e)
+- [Part 1](https://github.com/AzineZ/sentences-per-line/commit/f09474592002c6b6f74b271cf97f6bc92aa8030a)
+- [Part 2](https://github.com/AzineZ/sentences-per-line/commit/2bd66460c737064daa57954c61fca94fdd640a1b)
 
 **Review:** [Self-review checklist - does it follow the project's contribution guidelines?]
+- I modeled my fix similarly to the existing dot implementation. Formatting is automatically handled by Prettier, which is also
+recommended by the author.
+- All tests across all plugins are updated to handle ! and ?.
 
 **Evaluate:** [How will you verify it works?]
-
+- All tests need to pass.
+- Since the plugins including sentence-per-line depend on each other, having each plugin's test file test the new ! and ? features will confirm if they work
+across packages. This will be the integration tests of this project.
 ---
 
 ## Testing Strategy
