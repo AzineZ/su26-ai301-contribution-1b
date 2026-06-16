@@ -3,7 +3,7 @@
 **Contribution Number:** #22  
 **Student:** Phi Nguyen  
 **Issue:** [GitHub issue link](https://github.com/JoshuaKGoldberg/sentences-per-line/issues/22)  
-**Status:** Phase II Complete
+**Status:** Phase IV Complete
 
 ---
 
@@ -122,51 +122,83 @@ across packages. This will be the integration tests of this project.
 ## Testing Strategy
 
 ### Unit Tests
-
-- [ ] Test case 1: [Description]
-- [ ] Test case 2: [Description]
-- [ ] Test case 3: [Description]
+- I added dozens of tests so I will put a few main ones here.
+- [x] Test case 1: ["Hello world! Another sentence!", 12] - This checks for sentences ending with exclamation mark, return 12, where the first sentence ends.
+- [ ] Test case 2: ["`Hello?` World", undefined] - This checks for sentence wrapped in backticks. Return undefined since it's not a sentence.
+- [ ] Test case 3: ["Hey!? What are you doing?", 5] - This checks for consecutive ! and ?, which should still be valid. Return 5, where the ? is.
 
 ### Integration Tests
-
-- [ ] Integration scenario 1
-- [ ] Integration scenario 2
+- The code doesn't have traditional integration tests but different plugins in the code do require functionality of other plugins. For example, markdownlintsentenceperline uses sentence-per-line plugin too. For that, I added tests for ! and ? in these plugins' own test file, and they all passed. 
 
 ### Manual Testing
 
-[What you tested manually and results]
+I was recommended to add tests to the test files instead of manually test them so whenever I want to test a case, I add it to the test file and run the test suite.
 
 ---
 
 ## Implementation Notes
 
-### Week [X] Progress
+### Week [2] Progress
 
-[What you built this week, challenges faced, decisions made]
+- Added an if statement in getIndexBeforeSecondSentence function to handle exclamation mark and question mark.
+- Added checks for exclamation mark and question mark in the markdownlint file so the sentence node containing these new punctuations can be traversed.
+- Added tests to all test files across plugins that test the period to now also test the new punctuations.
 
-### Week [Y] Progress
+- Challenges: I had to check where else on the code was the sentence-per-line package use, which I found is in all other plugins in the code. So I had to go in every plugin and check if I have to add checks for ! and ?. These plugins' test files need to be able to pass sentences containing ! and ? as well.
+- Submitted PR.
+
 
 [Continue documenting as you work]
 
 ### Code Changes
 
-- **Files modified:** [List]
-- **Key commits:** [Links to important commits]
+- **Files modified:**
+  - packages/eslint-plugin-sentences-per-line/src/rules/one.test.ts
+  - packages/markdownlint-sentences-per-line/src/markdownlintSentencesPerLine.test.ts
+  - packages/prettier-plugin-sentences-per-line/src/modifications/modifyNodeIfMultipleSentencesInLine.ts
+  - packages/prettier-plugin-sentences-per-line/src/index.test.ts
+  - packages/sentences-per-line/src/getIndexBeforeSecondSentence.test.ts
+  - packages/sentences-per-line/src/getIndexBeforeSecondSentence.ts
+  - packages/sentences-per-line/README.md
+- **Key commits:**
+  - [Part 1](https://github.com/AzineZ/sentences-per-line/commit/f09474592002c6b6f74b271cf97f6bc92aa8030a)
+  - [Part 2](https://github.com/AzineZ/sentences-per-line/commit/2bd66460c737064daa57954c61fca94fdd640a1b)
 - **Approach decisions:** [Why you chose certain approaches]
+  - I designed ! and ? to behave similarly to the existing period implementation since they are all punctuations that end a sentence.
+  - My code change is minimal, mostly just adding tests. The original code is designed to be easily contributed.
 
 ---
 
 ## Pull Request
 
-**PR Link:** [GitHub PR URL when submitted]
+**PR Link:** [[GitHub PR URL](https://github.com/JoshuaKGoldberg/sentences-per-line/pull/1175)]
 
 **PR Description:** [Draft or final PR description - much of the content above can be adapted]
+<!-- 👋 Hi, thanks for sending a PR to sentences-per-line! 💖.
+Please fill out all fields below and make sure each item is true and [x] checked.
+Otherwise we may not be able to review your PR. -->
+
+## PR Checklist
+
+- [x] Addresses an existing open issue: Does not detect sentences ending with ! or ? #22 
+- [x] That issue was marked as [`status: accepting prs`](https://github.com/JoshuaKGoldberg/sentences-per-line/issues?q=is%3Aopen+is%3Aissue+label%3A%22status%3A+accepting+prs%22)
+- [x] Steps in [CONTRIBUTING.md](https://github.com/JoshuaKGoldberg/sentences-per-line/blob/main/.github/CONTRIBUTING.md) were taken
+
+## Overview
+
+<!-- Description of what is changed and how the code change does that. -->
+
+fixes #22 
+
+- Added to getIndexBeforeSecondSentence.ts the functionality to detect exclamation mark and question mark. It was initially handling just the period.
+- Modified modifyNodeIfMultipleSentencesInLine.ts so the function can walk the sentence node containing the exclamation mark and question mark.
+- Added tests for exclamation mark and question mark across test files in different plugins.
 
 **Maintainer Feedback:**
 - [Date]: [Summary of feedback received]
 - [Date]: [How you addressed it]
 
-**Status:** [Awaiting review / Iterating / Approved / Merged]
+**Status:** [Awaiting review]
 
 ---
 
@@ -175,18 +207,24 @@ across packages. This will be the integration tests of this project.
 ### Technical Skills Gained
 
 [What you learned technically]
+- Typescript
+- Testing
+- Debugging
 
 ### Challenges Overcome
 
 [What was hard and how you solved it]
+- Making sure your fix applies project-wise, not just file-wise. I had to check where else my fixed function can be called and adjust files at those places as needed.
 
 ### What I'd Do Differently Next Time
 
 [Reflection on your process]
+- I should have spent more time reading over the code. I was a little eager to begin implementing the fix.
 
 ---
 
 ## Resources Used
+- None other than the maintainer. I was able to do it without looking up online.
 
 - [Link to helpful documentation]
 - [Tutorial or Stack Overflow post that helped]
