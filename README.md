@@ -195,8 +195,8 @@ fixes #22
 - Added tests for exclamation mark and question mark across test files in different plugins.
 
 **Maintainer Feedback:**
-- [Date]: [Summary of feedback received]
-- [Date]: [How you addressed it]
+- 6/17/2026: From maintainer: [Bug] This duplicates the logic from the following block, except it misses the doesEndWithIgnoredWord. You'll need to deduplicate the blocks and add tests to make sure this case isn't missed.
+- 6/17/2026: combined logic in doesENdWithIgnoredWord. Removed unnecessary check that triggered lint error. Resubmitted re-review request
 
 **Status:** [Awaiting review]
 
