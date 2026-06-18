@@ -124,8 +124,8 @@ across packages. This will be the integration tests of this project.
 ### Unit Tests
 - I added dozens of tests so I will put a few main ones here.
 - [x] Test case 1: ["Hello world! Another sentence!", 12] - This checks for sentences ending with exclamation mark, return 12, where the first sentence ends.
-- [ ] Test case 2: ["`Hello?` World", undefined] - This checks for sentence wrapped in backticks. Return undefined since it's not a sentence.
-- [ ] Test case 3: ["Hey!? What are you doing?", 5] - This checks for consecutive ! and ?, which should still be valid. Return 5, where the ? is.
+- [x] Test case 2: ["`Hello?` World", undefined] - This checks for sentence wrapped in backticks. Return undefined since it's not a sentence.
+- [x] Test case 3: ["Hey!? What are you doing?", 5] - This checks for consecutive ! and ?, which should still be valid. Return 5, where the ? is.
 
 ### Integration Tests
 - The code doesn't have traditional integration tests but different plugins in the code do require functionality of other plugins. For example, markdownlintsentenceperline uses sentence-per-line plugin too. For that, I added tests for ! and ? in these plugins' own test file, and they all passed. 
