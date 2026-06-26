@@ -107,6 +107,8 @@ Using UMPIRE framework (adapted):
 - [Part 0 (this commit verifies bug reproduction)](https://github.com/AzineZ/sentences-per-line/commit/fdb70438f9af5c0a3bb1a696ceeced56764af52e)
 - [Part 1](https://github.com/AzineZ/sentences-per-line/commit/f09474592002c6b6f74b271cf97f6bc92aa8030a)
 - [Part 2](https://github.com/AzineZ/sentences-per-line/commit/2bd66460c737064daa57954c61fca94fdd640a1b)
+- [Part 3](https://github.com/JoshuaKGoldberg/sentences-per-line/pull/1175/changes/d6fb8ccaf133e9a3adad1ee470d7bfa9cec51e7e)
+- [Part 4](https://github.com/JoshuaKGoldberg/sentences-per-line/pull/1175/changes/4076615ea830640459f5d89ee75c60a0bacfc0c4)
 
 **Review:** [Self-review checklist - does it follow the project's contribution guidelines?]
 - I modeled my fix similarly to the existing dot implementation. Formatting is automatically handled by Prettier, which is also
@@ -196,7 +198,8 @@ fixes #22
 
 **Maintainer Feedback:**
 - 6/17/2026: From maintainer: [Bug] This duplicates the logic from the following block, except it misses the doesEndWithIgnoredWord. You'll need to deduplicate the blocks and add tests to make sure this case isn't missed.
-- 6/17/2026: combined logic in doesENdWithIgnoredWord. Removed unnecessary check that triggered lint error. Resubmitted re-review request
+- 6/17/2026: combined logic in doesENdWithIgnoredWord. Removed unnecessary check that triggered lint error. Resubmitted re-review request.
+- 6/24/2026: Reviewer asked if the capital letter check in the sentence tree traversal file can be extended to the existing period functionality. I fulfilled the request and are waiting for feedback.
 
 **Status:** [Awaiting review]
 
