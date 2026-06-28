@@ -200,8 +200,9 @@ fixes #22
 - 6/17/2026: From maintainer: [Bug] This duplicates the logic from the following block, except it misses the doesEndWithIgnoredWord. You'll need to deduplicate the blocks and add tests to make sure this case isn't missed.
 - 6/17/2026: combined logic in doesENdWithIgnoredWord. Removed unnecessary check that triggered lint error. Resubmitted re-review request.
 - 6/24/2026: Reviewer asked if the capital letter check in the sentence tree traversal file can be extended to the existing period functionality. I fulfilled the request and are waiting for feedback.
+- 6/27/2026: Approved and merged by reviewer. 
 
-**Status:** [Awaiting review]
+**Status:** [PR merged]
 
 ---
 
