@@ -1,24 +1,23 @@
-# Contribution #849: Formatter doesn't retrieve value correctly if value name in schema has capital letters
+# Contribution #207: 🧪 Testing: Add unit test for accepted issue with label object
 
-**Contribution Number:** #849
+**Contribution Number:** #207
 
 **Student:** Phi Nguyen  
-**Issue:** [GitHub issue link](https://github.com/readmeio/oas/issues/849)  
+**Issue:** [GitHub issue link](https://github.com/JoshuaKGoldberg/all-contributors-for-repository/issues/207)  
 **Status:** Phase I Complete
 
 ---
 
 ## Why I Chose This Issue
 
-I chose issue #849: "Formatter doesn't retrieve value correctly if value name in schema has capital letters" because it aligns with my JavaScript and Typescript experience 
-and my goal to improve my bug fixing skills. The issue are labeled "good first issue" and "help wanted" and has clear deployment and contributing steps. 
+I chose issue #207: "🧪 Testing: Add unit test for accepted issue with label object" because it aligns with my JavaScript and Typescript experience 
+and my goal to improve my testing skills. The issue are labeled "good first issue" and "accepting PRs" and has clear deployment and contributing steps. 
 
 From reading the issue thread, I understand the current 
-problem is that in the schema, headers are auto lowercased but another package looks them up in original casing so there is a mismatch. I plan to fix this with proper 
-scoping so that only the header is affected and other case-sensitive params are untouched.
+problem is that a unit test doesn't cover a branch in the code it is designed to. My job is to add a test case that covers the branch.
 
-I left a comment on the issue introducing myself and awaiting the maintainer's response. The issue author is last active March 2024 but the project 
-as a whole is still active with commits dating only days ago. No one has worked on it yet.
+I left a comment on the issue introducing myself and awaiting the maintainer's response. Although the issue is from 2024, I have worked on an issue of the maintainer's other repo. 
+I am confident he will respond.
 
 ---
 
