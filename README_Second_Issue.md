@@ -183,9 +183,9 @@ was exercised; this closes that coverage gap.
 
 **Maintainer Feedback:**
 - [7/15/2026]: Submitted PR, waiting for review
-- [Date]: [How you addressed it]
+- [7/18/2026]: Reviewer approved, PR merged and closed
 
-**Status:** [Awaiting review]
+**Status:** Merged
 
 ---
 
